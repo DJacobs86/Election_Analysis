@@ -23,8 +23,12 @@ with open(file_to_load) as election_data:
         #check if in candidate list
         if candidate not in candidates:
             candidates.append(candidate)
-        #add to candidate votes
         
+            #add to candidate votes
+            candidate_votes[candidate] =0
+        
+        candidate_votes[candidate] +=1
 
 print(f'Total Votes: {total_votes}')
 print(f'We had {len(candidates)} candidates')
+print(candidate_votes)
