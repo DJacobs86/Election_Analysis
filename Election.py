@@ -33,6 +33,24 @@ print(f'Total Votes: {total_votes}')
 print(f'We had {len(candidates)} candidates')
 print(candidate_votes)
 
-for candidate in candidates:
-    print(candidate)
-    print(f'Votes {round((candidate_votes[candidate] / total_votes)*100)}%')
+for candidate in candidate_votes:
+   
+    votes = candidate_votes[candidate]
+    winning_candidate = ""
+    winning_count = 0
+    winning_percentage = 0
+    vote_percentage = float(votes) / float(total_votes)*100
+    
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        winning_count = votes
+        winning_percentage = vote_percentage
+        winning_candidate = candidate
+    print(f"{candidate}: {vote_percentage:.1f}% ({votes:,})\n")
+    winning_cadidate_summary= (f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
+    print(winning_cadidate_summary)
+
+    
